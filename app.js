@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 
 //internal import
 const jobs = require('./routes/jobs');
+const auth = require('./routes/auth');
 const connectDatabase = require('./config/database');
 const errorHandleMiddleware = require('./middleware/errors');
 const ErrorHandler = require('./utils/errorHandler');
@@ -29,6 +30,7 @@ app.use(express.json());
 
 // routing 
 app.use('/api/v1',jobs);
+app.use('/api/v1', auth)
 
 //handle unhandled routes
 app.all('*', (req, res, next)=>{
